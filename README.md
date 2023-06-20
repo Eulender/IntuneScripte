@@ -1,2 +1,7 @@
-# IntuneScripte
-Diverse Scripte für Microsoft Intune
+# IntuneScripts
+## IntuneLocalAdmin.ps1
+Script to create a local admin user on a selected computer from Intune, Scripts. 
+
+
+
+
