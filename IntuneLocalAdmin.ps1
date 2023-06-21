@@ -22,9 +22,9 @@ $AdminGroupName = $AdminGroup.Translate([System.Security.Principal.NTAccount]).V
 
 # Check if username exists
 $adsi = [ADSI]"WinNT://$env:COMPUTERNAME"
-$existing = $adsi.Children | where {$_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
+$existing = $adsi.Children | Where-Object {$_.SchemaClassName -eq 'user' -and $_.Name -eq $Username }
 
-if ($existing -eq $null) {
+if ($null -eq $existing) {
 	# Create user and add too local admin group
 	& NET USER $Username $Password /add /y /expires:never
 	& NET LOCALGROUP $AdminGroupName $Username /add	
