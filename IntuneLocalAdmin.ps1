@@ -14,6 +14,9 @@
 # Local Admin User
 $Username = "Username"
 $Password = "Password"
+$serial = (Get-WmiObject -query 'select * from Win32_BIOS').SerialNumber
+$Password = "Pass$($serial)" 
+
 
 # Get name of the local admin group
 $AdminGroupSid = 'S-1-5-32-544'
