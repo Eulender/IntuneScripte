@@ -37,7 +37,7 @@ if ($null -eq $existing) {
 }
 
 # Set never Expires
-& WMIC USERACCOUNT WHERE "Name='$Username'" SET PasswordExpires=FALSE
+Get-Localuser -Name "$Username" | set-localuser -PasswordNeverExpires $true
 
 # Shutdown
-shutdown.exe /s /f
+#shutdown.exe /s /f
