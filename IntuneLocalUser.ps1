@@ -15,7 +15,7 @@
 $serial = get-computerinfo -property "BiosSeralNumber"
 $Username = "lauser"
 $Password = "la$($serial.BiosSeralNumber)"
-
+# (Get-FileHash -InputStream ([System.IO.MemoryStream]::New([System.Text.Encoding]::UTF8.GetBytes($serial.biosseralnumber))) -Algorithm MD5).Hash
 
 # Get name of the local admin group
 $AdminGroupSid = 'S-1-5-32-544'
