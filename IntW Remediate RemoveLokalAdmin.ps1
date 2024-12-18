@@ -1,0 +1,3 @@
+﻿
+
+Remove-LocalUser -Name "BGadmin"

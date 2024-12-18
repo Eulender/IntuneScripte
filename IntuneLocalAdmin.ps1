@@ -14,6 +14,9 @@
 # Local Admin User
 $Username = "Username"
 $Password = "Password"
+$serial = (Get-WmiObject -query 'select * from Win32_BIOS').SerialNumber
+$Password = "Pass$($serial)" 
+
 
 # Get name of the local admin group
 $AdminGroupSid = 'S-1-5-32-544'
@@ -34,7 +37,7 @@ if ($null -eq $existing) {
 }
 
 # Set never Expires
-& WMIC USERACCOUNT WHERE "Name='$Username'" SET PasswordExpires=FALSE
+Get-Localuser -Name "$Username" | set-localuser -PasswordNeverExpires $true
 
 # Shutdown
-shutdown.exe /s /f
+#shutdown.exe /s /f
