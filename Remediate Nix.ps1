@@ -1,0 +1,2 @@
+﻿# erfolgreich
+exit 0
